@@ -26,7 +26,7 @@ if [ $# -eq 1 ] ; then
 		   pics=$(echo $(uuid)"_pictures")
 		   mkdir $html && cd $_
 		   echo -e "Valid craigslist URL!  Downloading...\n"
-			 wget -w 3 --level=1 -nd -rkH -e robots=off -A .html $last
+			 wget -o ..output.log -w 3 -level=1 -nd -rkH -e robots=off -A .html $last
 			 grep -h -r -e '(?<=\"url\"\:\")(https.*?\.jpg)' -oP * >> ../LIST
 			 cd .. && mkdir $pics && cd $_ && wget -i ../LIST
 			 echo -e "\n\n\n\t\tDownload complete!"
